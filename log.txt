@@ -1,0 +1,2 @@
+Date - 2023-12-07, Time - 16:35:02, Message - This is a log message
+Date - 2023-12-07, Time - 16:35:31, Message - This is a log message
