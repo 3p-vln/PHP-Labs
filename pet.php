@@ -9,6 +9,23 @@
 
 <body>
     <?php
+
+    trait MovementTrait
+    {
+        public function move()
+        {
+            echo "{$this->name} is moving.<br>";
+        }
+    }
+
+    trait InfoTrait
+    {
+        public function displayInfo()
+        {
+            echo "Name: {$this->name}<br>";
+        }
+    }
+
     abstract class LivingBeing
     {
         protected $name;
@@ -17,12 +34,12 @@
         {
             $this->name = $name;
         }
-
-        abstract public function displayInfo();
     }
 
     class Animal extends LivingBeing
     {
+        use MovementTrait, InfoTrait;
+
         public $classification;
         public $numLimbs;
         public $numOffspring;
@@ -34,15 +51,12 @@
             $this->numLimbs = $numLimbs;
             $this->numOffspring = $numOffspring;
         }
-
-        public function displayInfo()
-        {
-            echo "Name: {$this->name},<br> Classification: {$this->classification},<br> Limbs: {$this->numLimbs},<br> Offspring: {$this->numOffspring}<br>";
-        }
     }
 
     class Plant extends LivingBeing
     {
+        use InfoTrait;
+
         public $type;
         public $color;
 
@@ -52,15 +66,11 @@
             $this->type = $type;
             $this->color = $color;
         }
-
-        public function displayInfo()
-        {
-            echo "Name: {$this->name},<br> Type: {$this->type},<br> Color: {$this->color}<br>";
-        }
     }
 
     $animal = new Animal("Monkey", "Mammal", 4, 3);
     $animal->displayInfo();
+    $animal->move();
     echo "<br>";
 
     $plant = new Plant("Rose", "Flower", "Red");
