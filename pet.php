@@ -84,11 +84,21 @@
     $animal3->set('numLimbs', 0);
     $animal3->set('numOffspring', 1000);
 
+    $animal4 = new Animal();
+    $animal4->set('classification', 'Parrot');
+    $animal4->set('numLimbs', 2);
+    $animal4->set('numOffspring', 3);
+
+    $animal5 = new Animal();
+    $animal5->set('classification', 'Pig');
+    $animal5->set('numLimbs', 4);
+    $animal5->set('numOffspring', 20);
+
     $animal3->callPrivateMethod();
 
     $animal3->showPrivateProperty();
 
-    $animalArray = array($animal1, $animal2, $animal3);
+    $animalArray = array($animal1, $animal2, $animal3, $animal4, $animal5);
 
     Animal::show_objects($animalArray);
 
